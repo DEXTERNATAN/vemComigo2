@@ -15,6 +15,5 @@ Versão
 Este projeto é construído em [Ionic](https://beta.ionicframework.com) usando a versão 4.
 
 [Instalacao ionic](https://beta.ionicframework.com/docs/installation/cli/)
-[Documentação](https://beta.ionicframework.com/docs/intro/)
-[]
 
+[Documentação](https://beta.ionicframework.com/docs/intro/)
