@@ -18,9 +18,7 @@ Iniciando o projeto
 
 Acessando o projeto
 -----------------------------------------------
-```
-    http://localhost:4200
-```
+`http://localhost:4200`
 
 Versão 
 -----------------------------------------------
