@@ -9,6 +9,18 @@ Instalando dependências
     npm install
 ```
 
+Iniciando o projeto
+-----------------------------------------------
+```
+    ng serve
+```
+
+
+Acessando o projeto
+-----------------------------------------------
+```
+    http://localhost:4200
+```
 
 Versão 
 -----------------------------------------------
