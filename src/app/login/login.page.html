@@ -1,0 +1,32 @@
+<!-- https://medium.com/appseed-io/integrating-firebase-password-and-google-authentication-into-your-ionic-3-app-2421cee32db9 -->
+<!-- https://www.joshmorony.com/advanced-forms-validation-in-ionic-2/ -->
+<ion-content padding>
+  <!-- <p> Form Status: {{ loginForm.value | json }} </p>
+  <p> Form Status: {{ loginForm.controls.email.valid }} </p> -->
+  <h1 text-center>Vem Comigo</h1>
+  <form (ngSubmit)="login()" [formGroup]="loginForm">
+    <ion-list inset>
+      <ion-item>
+        <ion-label position="floating">E-mail:</ion-label>
+        <ion-input type="text" formControlName="email" [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty && loginForm.controls.email.touched || submitAttempt)"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty && loginForm.controls.email.touched || submitAttempt)">
+        <p>Por favor! Informe um e-mail válido.</p>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Senha:</ion-label>
+        <ion-input type="password" formControlName="password"  [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)">
+        <p>Por favor! Campo obrigatorio.</p>
+      </ion-item>
+      <div padding>
+        <ion-button type="submit" expand="full">PRONTO!</ion-button>
+      </div>
+      <div padding text-center>
+        <p>
+          <ion-icon name="logo-facebook"></ion-icon> Cadastrar com Facebook</p>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

@@ -9,10 +9,30 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+export const firebaseConfig = {
+  apiKey: 'AIzaSyCLci0iqDgIxgcwb5iAvZSPzYth1hZKmcg',
+  authDomain: 'vemcomigo-7ad88.firebaseapp.com',
+  databaseURL: 'https://vemcomigo-7ad88.firebaseio.com',
+  storageBucket: 'vemcomigo-7ad88.appspot.com',
+  messagingSenderId: '51418442473'
+};
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [ AppComponent ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,
