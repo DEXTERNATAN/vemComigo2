@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginPage } from './login.page';
+import { AuthService } from '../services/auth.service';
+
 
 @NgModule({
   imports: [
@@ -13,6 +15,7 @@ import { LoginPage } from './login.page';
     ReactiveFormsModule,
     RouterModule.forChild([{ path: '', component: LoginPage }])
   ],
+  providers: [AuthService],
   declarations: [LoginPage]
 })
 export class LoginPageModule {}
