@@ -11,8 +11,17 @@ export class AuthService {
   private user: Observable<firebase.User>;
   private userDetails: firebase.User = null;
 
-  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) { 
+  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
     this.user = _firebaseAuth.authState;
+  }
+
+  signWithEmail(credentials) {
+    return this._firebaseAuth.auth.signInWithEmailAndPassword(credentials.email,
+      credentials.password);
+    // return this._firebaseAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password).catch(function(error) {
+    //   let errorCode = error.code;
+    //   let errorMessage = error.message;
+    // });
   }
 
   signInWithGoogle() {
