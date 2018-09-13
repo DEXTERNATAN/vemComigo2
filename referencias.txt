@@ -1,0 +1,14 @@
+Componentes
+https://beta.ionicframework.com/docs/components
+
+API Componentes
+https://beta.ionicframework.com/docs/api/button#size
+
+
+Icones 
+https://ionicons.com/
+
+
+Referencias visuais
+https://creativemarket.com/ionictheme/2058414-Ionic-3-Real-Estate-Properties-Theme
+https://creativemarket.com/ionictheme/2058414-Ionic-3-Real-Estate-Properties-Theme/screenshots/#screenshot4

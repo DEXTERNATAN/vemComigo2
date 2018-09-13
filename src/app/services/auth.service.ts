@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+
   private user: Observable<firebase.User>;
   private userDetails: firebase.User = null;
 
@@ -15,19 +16,17 @@ export class AuthService {
     this.user = _firebaseAuth.authState;
   }
 
+  createUser(credentials) {
+    return this._firebaseAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password);
+  }
+
+
   signWithEmail(credentials) {
-    return this._firebaseAuth.auth.signInWithEmailAndPassword(credentials.email,
-      credentials.password);
-    // return this._firebaseAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password).catch(function(error) {
-    //   let errorCode = error.code;
-    //   let errorMessage = error.message;
-    // });
+    return this._firebaseAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password);
   }
 
   signInWithGoogle() {
-    return this._firebaseAuth.auth.signInWithPopup(
-      new firebase.auth.GoogleAuthProvider()
-    );
+    return this._firebaseAuth.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider());
   }
 
   isLoggedIn() {

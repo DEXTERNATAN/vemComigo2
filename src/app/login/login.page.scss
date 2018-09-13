@@ -1,30 +1,31 @@
-// .ios, .md {
- 
-    // app-login {
- 
-        // p {
-        //     font-size: 0.8em;
-        //     color: #d2d2d2;
-        // }
- 
-        // .swiper-slide {
-        //     display: block;
-        // }
- 
-        // ion-label, .select-text {
-        //     color: #d2d2d2;
-        //     margin-left: 10px;
-        // }
- 
-        // ion-input, ion-select, ion-textarea {
-        //     background-color: #f2f2f2;
-        //     padding: 5px 10px;
-        // }
- 
-        .invalid {
-            border: 1px solid #ea6153;
-        }
- 
-    // }
- 
-// }
+.invalid {
+    border: 1px solid #ea6153;
+}
+.btn-logar {
+    height: 40px;
+    width: 100%;
+    border: 1px;
+    background-color: #3b5a9a;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.btn-facebook {
+    display: inline-block;
+    height: 40px;
+    width: 50%;
+    border: 1px;
+    background-color: #3b5a9a;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.btn-google {
+    display: inline-block;
+    height: 40px;
+    width: 50%;
+    border: 1px;
+    background-color: #e34007;
+    color: #ffffff;
+    font-size: 20px;
+}

@@ -20,13 +20,18 @@
       <ion-item *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)">
         <p>Por favor! Campo obrigatorio.</p>
       </ion-item>
-      <div padding>
-        <ion-button type="submit" expand="full">PRONTO!</ion-button>
+      <div padding-top text-end>
+        <p>Esqueceu senha ?</p>
+        <!-- <ion-button type="submit" expand="full">PRONTO!</ion-button> -->
       </div>
-      <div padding text-center>
-        <p>
-          <ion-icon name="logo-facebook"></ion-icon> Cadastrar com Facebook</p>
+      <div padding-top>
+        <button type="submit" ion-button class="btn-logar">Entrar</button>
       </div>
     </ion-list>
+    <div padding>
+      <p text-center>Ou</p>
+      <button ion-button class="btn-facebook"><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-button class="btn-google"><ion-icon name="logo-googleplus"></ion-icon></button>
+    </div>
   </form>
 </ion-content>
