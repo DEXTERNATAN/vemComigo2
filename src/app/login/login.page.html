@@ -1,10 +1,16 @@
-<!-- https://medium.com/appseed-io/integrating-firebase-password-and-google-authentication-into-your-ionic-3-app-2421cee32db9 -->
-<!-- https://www.joshmorony.com/advanced-forms-validation-in-ionic-2/ -->
 <ion-content padding>
-  <!-- <p> Form Status: {{ loginForm.value | json }} </p>
-  <p> Form Status: {{ loginForm.controls.email.valid }} </p> -->
+  <div *ngIf="(user | async)?.email" class="row justify-content-center">
+    <div class="media">
+      <img class="d-flex mr-3" width="60" src="{{ (user | async)?.photoURL }}" alt="Generic placeholder image">
+      <div class="media-body">
+        <h5 class="mt-0">{{ (user | async)?.displayName }}</h5>
+        <p class="mt-0">{{ (user | async)?.email }}</p>
+        <button (click)="logout()" class="btn btn-info">Sair</button>
+      </div>
+    </div>
+  </div>
   <h1 text-center>Vem Comigo</h1>
-  <form (ngSubmit)="login()" [formGroup]="loginForm">
+  <form [formGroup]="loginForm" (ngSubmit)="loginEmail()" >
     <ion-list inset>
       <ion-item>
         <ion-label position="floating">E-mail:</ion-label>
@@ -15,23 +21,32 @@
       </ion-item>
       <ion-item>
         <ion-label position="floating">Senha:</ion-label>
-        <ion-input type="password" formControlName="password"  [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)"></ion-input>
+        <ion-input type="password" formControlName="password" [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)"></ion-input>
       </ion-item>
       <ion-item *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)">
         <p>Por favor! Campo obrigatorio.</p>
       </ion-item>
       <div padding-top text-end>
         <p>Esqueceu senha ?</p>
-        <!-- <ion-button type="submit" expand="full">PRONTO!</ion-button> -->
       </div>
       <div padding-top>
         <button type="submit" ion-button class="btn-logar">Entrar</button>
+        <br>
+        <br>
+        <button type="submit" ion-button class="btn-logar" (click)="logout()">Sair</button>
+        <br>
+        <br>
+        <button type="submit" ion-button class="btn-logar" (click)="CadastrarUsuario()">Novo Usuario</button>
       </div>
     </ion-list>
     <div padding>
       <p text-center>Ou</p>
-      <button ion-button class="btn-facebook"><ion-icon name="logo-facebook"></ion-icon></button>
-      <button ion-button class="btn-google"><ion-icon name="logo-googleplus"></ion-icon></button>
+      <button ion-button class="btn-facebook">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </button>
+      <button ion-button class="btn-google" (click)="loginWithGoogle()">
+        <ion-icon name="logo-googleplus"></ion-icon>
+      </button>
     </div>
   </form>
 </ion-content>

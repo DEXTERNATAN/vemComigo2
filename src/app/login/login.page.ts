@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { Observable } from 'rxjs';
+import { AngularFireAuth } from 'angularfire2/auth';
+
+import { NavController } from '@ionic/angular';
+import * as firebase from 'firebase/app';
+
 
 @Component({
   selector: 'app-login',
@@ -10,44 +16,122 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginPage {
 
-  private loginForm: FormGroup;
+  loginForm: FormGroup;
   submitAttempt = false;
-  credentias: { email: any; password: any; };
+  credentias: { email: any; password: any };
+
+  user: Observable<firebase.User>;
+  nome: string;
+  email: string;
+  senha: string;
+  urlImagem: string;
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private route: ActivatedRoute,
+    private router: Router,
+    public afAuth: AngularFireAuth,
+    public navCtrl: NavController
   ) {
+
+    this.user = this.afAuth.authState;
+
     this.loginForm = fb.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
     });
+
   }
 
-  cadastrar() {
-    this.credentias = { 'email': this.loginForm.value.email, 'password': this.loginForm.value.password };
-    this.authService.createUser(this.credentias).then(
-      data => {
-        console.log(data);
-      },
-      error => console.log('Erro ao cadastrar usuário!')
-    );
+  // NEW
+  loginFacebook() {
+    this.afAuth.auth.signInWithPopup( new firebase.auth.FacebookAuthProvider());
   }
 
-  login() {
-    this.submitAttempt = true;
-    this.credentias = {
-      email: this.loginForm.value.email,
-      password: this.loginForm.value.password
-    };
-
-    this.authService.signWithEmail(this.credentias).then(
-      () => {
-        console.log('Logado');
-      },
-      error => console.log('Erros encontrados: ', error)
-    );
+  loginWithGoogle() {
+    this.afAuth.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider());
   }
+
+  loginEmail() {
+
+    const credentials = { email: this.loginForm.value.email, password: this.loginForm.value.password };
+    firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
+    .then(data => {
+      console.log('Resultado: ', data);
+    })
+    .catch((erro: any) => {
+      console.log(erro);
+    });
+
+  }
+
+  createEmail() {
+    const credentials = { email: this.loginForm.value.email, password: this.loginForm.value.password };
+    firebase.auth().createUserWithEmailAndPassword(credentials.email, credentials.password).then((res: any) => {
+      console.log(res);
+      const usuario = firebase.auth().currentUser;
+      usuario.updateProfile({
+        displayName: this.nome,
+        photoURL: this.urlImagem
+      });
+
+    }).catch((erro: any) => {
+      console.log(erro);
+    });
+
+  }
+
+  CadastrarUsuario() {
+    console.log('Teste');
+    this.router.navigate(['/signup']);
+  }
+
+  logout() {
+    console.log('Deslogando');
+    this.afAuth.auth.signOut();
+  }
+
+  // OLD
+  // loadCredentials() {
+  //   this.credentias = {
+  //     email: this.loginForm.value.email,
+  //     password: this.loginForm.value.password
+  //   };
+  // }
+
+
+  // login() {
+  //   this.submitAttempt = true;
+  //   this.loadCredentials();
+
+  //   this.authService.signWithEmail(this.credentias).then(
+  //     () => {
+  //       console.log('Logado');
+  //     },
+  //     error => console.log('Erros encontrados: ', error)
+  //   );
+  // }
+
+  // loginWithGoogle() {
+  //   this.loadCredentials();
+  //   console.log('Login com google');
+
+  //   this.authService.signInWithGoogle(this.credentias).then(
+  //     data => {
+  //       // this.user = data;
+  //       console.log('logado: ', data);
+  //       this.user = data;
+  //     },
+  //     error => console.log('Erros encontrados: ', error)
+  //   );
+
+  // }
+
+  // logout() {
+  //   console.log('Saindo da aplicação do google');
+  //   this.authService.logout();
+  // }
+
+
 }
-
