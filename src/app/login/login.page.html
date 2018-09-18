@@ -33,18 +33,13 @@
       </div>
       <div padding-top>
         <button type="submit" ion-button class="btn-logar" (click)="loginEmail()">Entrar</button>
-        <br>
-        <br>
         <!-- <button type="submit" ion-button class="btn-logar" (click)="logout()">Sair</button> -->
-        <br>
-        <br>
-        <button type="submit" ion-button class="btn-logar" (click)="CadastrarUsuario()">Novo Usuario</button>
+        <!-- <button type="submit" ion-button class="btn-logar" (click)="CadastrarUsuario()">Novo Usuario</button> -->
       </div>
     </ion-list>
   </form>
   <div padding-top text-center>
-    <p class="barra-botoes">Ou</p>
-    <br>
+    <p class="barra-botoes">OU</p>
     <!-- 
       <button ion-button class="btn-facebook">
         <ion-icon name="logo-facebook"></ion-icon>
@@ -52,7 +47,11 @@
     -->
     <button ion-button class="btn-google" (click)="loginWithGoogle()">
       <ion-icon name="logo-google" style="margin-right: 5px;"></ion-icon>
-      <span style="vertical-align: top;">Login com Google</span>  
+      <span style="vertical-align: top;">Login com Google</span>
     </button>
+  </div>
+  <div padding style="color: #fff;">
+    <a text-end style="color: #fff; font-size: 13px; padding-right: 48px;" (click)="CadastrarUsuario()">Novo aqui? Cadastre-se</a>
+    <a text-start style="color: #fff; font-size: 13px;" (click)="EsqueceuSenha()">Esqueceu senha ?</a>
   </div>
 </ion-content>

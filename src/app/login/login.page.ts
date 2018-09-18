@@ -88,6 +88,11 @@ export class LoginPage {
     this.router.navigate(['/signup']);
   }
 
+  
+  EsqueceuSenha() {
+    this.router.navigate(['/forgot']);
+  }
+
   logout() {
     console.log('Deslogando');
     this.afAuth.auth.signOut();
