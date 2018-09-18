@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Cadastrar Usuário</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/create">
+        <ion-icon name="add-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h1 text-center>
+    <ion-icon class="auth-icon" name="person-add" color="primary"></ion-icon>
+  </h1>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value);">
+    <ion-item>
+      <ion-icon name="person" item-left></ion-icon>
+      <ion-input type="text" placeholder="Informe o nome" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="at" item-left></ion-icon>
+      <ion-input type="text" placeholder="informe o nome de usuário" formControlName="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="mail" item-left></ion-icon>
+      <ion-input type="text" placeholder="informe o seu email" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="lock" item-left></ion-icon>
+      <ion-input type="password" placeholder="informe uma senha" formControlName="password"></ion-input>
+    </ion-item>
+    <br>
+
+    <div padding text-center>
+      <ion-button button type="submit" form="ngForm" color="primary" fill="solid" expand="block" [disabled]="signupForm.invalid">
+        <ion-text class="done-btn">Criar conta</ion-text>
+      </ion-button>
+    </div>
+
+  </form>
+</ion-content>

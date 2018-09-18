@@ -3,10 +3,14 @@
 }
 
 .fundo-tela {
-    background-color: #158473;
+    background-color: #488AFF;
 }
 
 .logo {
+    color: #ffffff;
+}
+
+.titulo {
     color: #ffffff;
 }
 
@@ -15,7 +19,7 @@
 }
 
 .ionlist-custom-login {
-    background-color: #158473;
+    background-color: #488AFF;
     color: #ffffff;
 }
 
@@ -25,6 +29,7 @@
 
 .ion-input-custom {
     color: #ffffff;
+    border-bottom:1px solid #ffffff;
 }
 
 .btn-logar {
@@ -49,7 +54,7 @@
 .btn-google {
     display: inline-block;
     height: 40px;
-    width: 50%;
+    width: 90%;
     border: 1px;
     background-color: #e34007;
     color: #ffffff;

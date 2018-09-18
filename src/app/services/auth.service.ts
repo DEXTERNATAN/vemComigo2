@@ -9,24 +9,40 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private user: Observable<firebase.User>;
   private userDetails: firebase.User = null;
+  user: Observable<firebase.User>;
 
   constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
     this.user = _firebaseAuth.authState;
   }
 
-  createUser(credentials) {
-    return this._firebaseAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password);
-  }
-
-
   signWithEmail(credentials) {
     return this._firebaseAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password);
   }
 
-  signInWithGoogle() {
+  signInWithGoogle(credentials) {
     return this._firebaseAuth.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider());
+  }
+
+  signInWithFacebook(credentials) {
+    return this._firebaseAuth.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider());
+  }
+
+
+  createUser(credentials) {
+
+    return firebase.auth().createUserWithEmailAndPassword(credentials.email, credentials.senha).then((res: any) => {
+      console.log(res);
+      const usuario = firebase.auth().currentUser;
+      usuario.updateProfile({
+        displayName: credentials.nome,
+        photoURL: credentials.urlImagem
+      });
+
+    }).catch((erro: any) => {
+      console.log(erro);
+    });
+
   }
 
   isLoggedIn() {
@@ -38,7 +54,8 @@ export class AuthService {
   }
 
   logout() {
-    return this._firebaseAuth.auth.signOut().then((res) => this.router.navigate(['/']));
+    return this._firebaseAuth.auth.signOut().then((res) => console.log('Usuário deslogado'));
+    // this.router.navigate(['/'])
   }
 
 }
