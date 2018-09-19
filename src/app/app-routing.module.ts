@@ -4,7 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: '', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'contact', loadChildren: './tabs/tabs.module#TabsPageModule' },
-  { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' },  { path: 'forgot', loadChildren: './forgot/forgot.module#ForgotPageModule' }
+  { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' },
+  { path: 'forgot', loadChildren: './forgot/forgot.module#ForgotPageModule' },
+  { path: 'tela-logado', loadChildren: './tela-logado/tela-logado.module#TelaLogadoPageModule' }
 
 ];
 @NgModule({

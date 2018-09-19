@@ -28,9 +28,11 @@
       <ion-item *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)">
         <p>Por favor! Campo obrigatorio.</p>
       </ion-item>
+      <!-- 
       <div padding-top text-end>
         <p>Esqueceu senha ?</p>
       </div>
+       -->
       <div padding-top>
         <button type="submit" ion-button class="btn-logar" (click)="loginEmail()">Entrar</button>
         <!-- <button type="submit" ion-button class="btn-logar" (click)="logout()">Sair</button> -->

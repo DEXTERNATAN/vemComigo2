@@ -60,6 +60,8 @@ export class LoginPage {
     firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
     .then(data => {
       console.log('Resultado: ', data);
+      // this.router.navigate(['/tabs/(home:home)']);
+      this.navCtrl.goRoot('TabsPage');
     })
     .catch((erro: any) => {
       console.log(erro);

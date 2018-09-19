@@ -40,7 +40,7 @@ export class SignupPage implements OnInit {
   onSubmit(user: any): void {
     console.log('Inserindo um novo registro');
     this._userService.createUsers(user);
-    this.router.navigate(['contact']);
+    this.router.navigate(['/']);
     // this.nav.goRoot('contact');
     // this.nav.goRoot(LoginPage);
   }
