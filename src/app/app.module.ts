@@ -11,17 +11,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
 import { AngularFirestore } from 'angularfire2/firestore';
 
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 
 @NgModule({
-  declarations: [ AppComponent ],
+  declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -31,17 +32,18 @@ import { UserService } from './services/user.service';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    IonicStorageModule.forRoot()
   ],
   providers: [
-    AngularFirestore,
     StatusBar,
+    SplashScreen,
+    AngularFirestore,
+    AngularFireDatabase,
     UserService,
     AuthService,
-    SplashScreen,
-    AngularFireDatabase,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
