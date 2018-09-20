@@ -5,12 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TelaLogadoPage } from './tela-logado.page';
+import { MenuPage } from './menu.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: TelaLogadoPage
+    component: MenuPage
   }
 ];
 
@@ -21,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [TelaLogadoPage]
+  declarations: [MenuPage]
 })
-export class TelaLogadoPageModule {}
+export class MenuPageModule {}
