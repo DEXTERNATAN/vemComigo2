@@ -1,7 +1,11 @@
-import { Platform } from '@ionic/angular';
 import { Injectable } from '@angular/core';
+import { Platform } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { BehaviorSubject } from 'rxjs';
+import { LoadingController } from '@ionic/angular';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+import { Observable } from 'rxjs';
 
 const TOKEN_KEY = 'auth-token';
 
@@ -10,9 +14,16 @@ const TOKEN_KEY = 'auth-token';
 })
 export class AuthenticationService {
 
+  private user: Observable<firebase.User>;
   authenticationState = new BehaviorSubject(false);
 
-  constructor(private storage: Storage, private plt: Platform) {
+  constructor(
+    private storage: Storage,
+    private plt: Platform,
+    private _firebaseAuth: AngularFireAuth,
+    public loadingController: LoadingController
+  ) {
+    this.user = _firebaseAuth.authState;
     this.plt.ready().then(() => {
       this.checkToken();
     });
@@ -26,10 +37,35 @@ export class AuthenticationService {
     });
   }
 
-  login() {
-    return this.storage.set(TOKEN_KEY, 'Bearer 1234567').then(() => {
-      this.authenticationState.next(true);
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      // message: 'Hellooo',
+      duration: 2000
     });
+    return await loading.present();
+  }
+
+  signWithEmail(credentials) {
+    this.presentLoading();
+    return this._firebaseAuth.auth
+      .signInWithEmailAndPassword(credentials.email, credentials.password)
+      .then(data => {
+        this.storage.set(TOKEN_KEY, 'Bearer 1234567').then(() => {
+          this.authenticationState.next(true);
+        });
+      });
+  }
+
+  signInWithGoogle() {
+    return this._firebaseAuth.auth.signInWithPopup(
+      new firebase.auth.GoogleAuthProvider()
+    ).then(
+      () => {
+        this.storage.set(TOKEN_KEY, 'Bearer 1234567').then(() => {
+          this.authenticationState.next(true);
+        });
+      }
+    );
   }
 
   logout() {
@@ -40,6 +76,10 @@ export class AuthenticationService {
 
   isAuthenticated() {
     return this.authenticationState.value;
+  }
+
+  getProfile() {
+    return this.user;
   }
 
 }
