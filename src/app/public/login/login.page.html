@@ -1,45 +1,40 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content padding>
+
   <div text-center>
-    <h1>Vem Comigo</h1>
+    <h1>Imagem Logo Aqui ...</h1>
   </div>
-  <!-- class="login-content" -->
   <ion-row class="logo-row">
     <ion-col></ion-col>
     <ion-col width-67>
-      <!-- <img src="http://placehold.it/300x200" /> -->
+      <h1>Logo Aqui ...</h1>
     </ion-col>
     <ion-col></ion-col>
   </ion-row>
 
   <div class="">
-    <form (ngSubmit)="login()" #registerForm="ngForm">
+    <form (ngSubmit)="login()" [formGroup]="loginForm">
       <ion-row>
         <ion-col>
           <ion-list inset>
-
             <ion-item>
-              <ion-input type="text" placeholder="Email" name="email" required></ion-input>
+              <ion-input type="text" placeholder="Email" id="email" formControlName="email" [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty && loginForm.controls.email.touched || submitAttempt)"></ion-input>
             </ion-item>
-
+            <ion-item class="ion-invalid" *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty && loginForm.controls.email.touched || submitAttempt)">
+              <p class="msgInvalid">Por favor! Informe um e-mail válido.</p>
+            </ion-item>
             <ion-item>
-              <ion-input type="password" placeholder="Password" name="password" required></ion-input>
+              <ion-input type="password" placeholder="Password" id="password" formControlName="password"
+                [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)"></ion-input>
             </ion-item>
-
+            <ion-item class="ion-invalid" *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)">
+              <p class="msgInvalid">Por favor! Campo obrigatorio.</p>
+            </ion-item>
           </ion-list>
         </ion-col>
       </ion-row>
-
       <ion-row>
         <ion-col>
-          <!-- class="signup-col" -->
-          <ion-button button expand="block" shape="round" class="submit-btn" type="submit" [disabled]="!registerForm.form.valid">Entrar</ion-button>
-          <!-- <ion-button button expand="block" shape="round" color="secondary" class="register-btn" clear (click)="createAccount()">Create New Account</ion-button> -->
+          <ion-button button expand="block" shape="round" class="submit-btn" type="submit">Entrar</ion-button>
         </ion-col>
       </ion-row>
 
@@ -47,13 +42,12 @@
   </div>
 
   <ion-button expand="block" shape="round" color="secondary" href="/register" routerDirection="forward">Novo Usuário</ion-button>
-
   <div padding-top style="display: flex;">
-    <ion-button expand="block" color="danger" style="width: 50%;">
+    <ion-button expand="block" color="danger" style="width: 50%;" (click)="loginGoogle()">
       <ion-icon name="logo-google"></ion-icon>
       <!-- LOGIN COM GOOGLE -->
     </ion-button>
-    <ion-button expand="block" color="primary" style="width: 50%;">
+    <ion-button expand="block" color="primary" style="width: 50%;" (click)="loginFacebook()">
       <ion-icon name="logo-facebook"></ion-icon>
       <!-- LOGIN COM FACEBOOK -->
     </ion-button>
