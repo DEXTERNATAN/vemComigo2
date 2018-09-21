@@ -1,38 +1,50 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Login</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content padding>
-  <form (ngSubmit)="login()" #registerForm="ngForm">
-    <ion-row>
-      <ion-col>
-        <ion-list inset>
+  <div text-center>
+    <h1>Vem Comigo</h1>
+  </div>
+  <!-- class="login-content" -->
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <!-- <img src="http://placehold.it/300x200" /> -->
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
 
-          <ion-item>
-            <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
-          </ion-item>
+  <div class="">
+    <form (ngSubmit)="login()" #registerForm="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
 
-          <ion-item>
-            <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password"
-              required></ion-input>
-          </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="Email" name="email" required></ion-input>
+            </ion-item>
 
-        </ion-list>
-      </ion-col>
-    </ion-row>
+            <ion-item>
+              <ion-input type="password" placeholder="Password" name="password" required></ion-input>
+            </ion-item>
 
-    <ion-row>
-      <ion-col class="signup-col">
-        <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>
-        <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button>
-      </ion-col>
-    </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
 
-  </form>
-  <!-- 
-    <ion-button (click)="login()" expand="block">Login</ion-button>
-    <ion-button expand="block" color="secondary" href="/register" routerDirection="forward">Register</ion-button> 
-  -->
+      <ion-row>
+        <ion-col>
+          <!-- class="signup-col" -->
+          <ion-button button expand="block" shape="round" class="submit-btn" type="submit" [disabled]="!registerForm.form.valid">Login</ion-button>
+          <!-- <ion-button button expand="block" shape="round" color="secondary" class="register-btn" clear (click)="createAccount()">Create New Account</ion-button> -->
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </div>
+
+  <ion-button expand="block" shape="round" color="secondary" href="/register" routerDirection="forward">Register</ion-button>
 </ion-content>
