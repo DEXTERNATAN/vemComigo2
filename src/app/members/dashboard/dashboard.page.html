@@ -10,5 +10,19 @@
 </ion-header>
 
 <ion-content padding>
-  <p>Usuario logado: {{this.currentUser}} </p>
+  <!-- <p>Usuario logado: {{this.currentUser?.email}} </p>
+  <p><img src="{{this.currentUser?.photoURL}}" alt=""></p> -->
+
+  <ion-card>
+    <ion-card-header>
+      <img src="{{this.currentUser?.photoURL}}" alt="Avatar do usuário" height="110px">
+      <ion-card-subtitle>Seja Bem Vindo!</ion-card-subtitle>
+      <ion-card-title>{{this.currentUser?.displayName}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{this.currentUser?.email}}
+    </ion-card-content>
+  </ion-card>
+
+
 </ion-content>

@@ -17,7 +17,8 @@ export class DashboardPage implements OnInit {
 
   ngOnInit() {
     this.authService.getProfile().subscribe(data => {
-      this.currentUser = data.email;
+      console.log(data);
+      this.currentUser = data;
     });
   }
 
