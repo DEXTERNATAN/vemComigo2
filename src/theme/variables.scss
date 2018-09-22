@@ -4,12 +4,13 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #488aff;
-  --ion-color-primary-rgb: 72,138,255;
-  --ion-color-primary-contrast: #fff;
-  --ion-color-primary-contrast-rgb: 255,255,255;
-  --ion-color-primary-shade: #3f79e0;
-  --ion-color-primary-tint: #5a96ff;
+  --ion-color-primary: #77d3ed;
+  --ion-color-primary-rgb: 119,211,237;
+  --ion-color-primary-contrast: #f1f1f1;
+  --ion-color-primary-contrast-rgb: 0,0,0;
+  --ion-color-primary-shade: #69bad1;
+  --ion-color-primary-tint: #85d7ef;
+
 
   /** secondary **/
   --ion-color-secondary: #32db64;
@@ -74,4 +75,46 @@
   --ion-color-dark-contrast-rgb: 255,255,255;
   --ion-color-dark-shade: #1e1e1e;
   --ion-color-dark-tint: #383838;
+
+}
+
+:host {
+ 
+  --border-radius: 0;
+  --border-width: 2px;
+  --border-style: solid;
+  --border-color: #77d3ed;
+  --inner-border-width: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-end: 0;
+  --padding-start: 0;
+  --inner-padding-top: 0px;
+  --inner-padding-bottom: 0px;
+  --inner-padding-start: 0px;
+  --inner-padding-end: 0px;
+  --box-shadow: none;
+  --inner-box-shadow: none;
+  // --highlight-color-focus: #{ion-color(primary, base)};
+  // --highlight-color-valid: #{ion-color(success, base)};
+  // --highlight-color-invalid: #{ion-color(danger, base)};
+  // --highlight-height: 2px;
+}
+
+:host(.item-interactive){
+  --border-radius: 0;
+  --border-width: 2px;
+  --border-style: solid;
+}
+
+
+
+/* Set text color of the entire app for iOS only */
+.ios {
+  --ion-text-color: #686569;
+} 
+
+/* Set text color of the entire app for Material Design only */
+.md {
+  --ion-text-color: #686569;
 }

@@ -1,27 +1,34 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content padding>
+
+<ion-content>
+    <div class="cabecalho" >
+        <ion-img src="assets/img/layout1.png"></ion-img>
+    </div> 
+    <ion-title text-center margin >Bem-Vinda!</ion-title>
   <form (ngSubmit)="login()" #registerForm="ngForm">
     <ion-row>
       <ion-col>
-        <ion-list inset>
-
           <ion-item>
-            <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+            <ion-input type="text" placeholder="E-mail" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
           </ion-item>
 
-          <ion-item>
-            <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password"
+          <ion-item  margin-top >
+            <ion-input type="password" placeholder="Senha (min 6 caracteres)" name="password" [(ngModel)]="registerCredentials.password"
               required></ion-input>
           </ion-item>
 
-        </ion-list>
+          <ion-item margin-top >
+            <ion-input type="password" placeholder="Confirme a senha" name="confirmpassword" [(ngModel)]="registerCredentials.confirmpassword"
+              required></ion-input>
+          </ion-item>
       </ion-col>
     </ion-row>
+
+    <ion-row>
+        <ion-col>
+          <ion-button expand="block" shape="round">PRONTO!</ion-button>
+          </ion-col>
+        </ion-row>
 
     <ion-row>
       <ion-col class="signup-col">
@@ -29,7 +36,6 @@
         <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button>
       </ion-col>
     </ion-row>
-
   </form>
   <!-- 
     <ion-button (click)="login()" expand="block">Login</ion-button>
