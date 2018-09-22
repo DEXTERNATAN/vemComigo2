@@ -84,9 +84,11 @@
 /* Set text color of the entire app for iOS only */
 .ios {
   --ion-text-color: #686569;
+  --ion-background-color: #f5fcfd;
 } 
 
 /* Set text color of the entire app for Material Design only */
 .md {
   --ion-text-color: #686569;
+  --ion-background-color:#f5fcfd;
 }
