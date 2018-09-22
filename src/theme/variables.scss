@@ -4,12 +4,13 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #488aff;
-  --ion-color-primary-rgb: 72,138,255;
-  --ion-color-primary-contrast: #fff;
-  --ion-color-primary-contrast-rgb: 255,255,255;
-  --ion-color-primary-shade: #3f79e0;
-  --ion-color-primary-tint: #5a96ff;
+  --ion-color-primary: #77d3ed;
+  --ion-color-primary-rgb: 119,211,237;
+  --ion-color-primary-contrast: #f1f1f1;
+  --ion-color-primary-contrast-rgb: 0,0,0;
+  --ion-color-primary-shade: #69bad1;
+  --ion-color-primary-tint: #85d7ef;
+
 
   /** secondary **/
   --ion-color-secondary: #32db64;
@@ -74,4 +75,18 @@
   --ion-color-dark-contrast-rgb: 255,255,255;
   --ion-color-dark-shade: #1e1e1e;
   --ion-color-dark-tint: #383838;
+
+}
+
+
+
+
+/* Set text color of the entire app for iOS only */
+.ios {
+  --ion-text-color: #686569;
+} 
+
+/* Set text color of the entire app for Material Design only */
+.md {
+  --ion-text-color: #686569;
 }
