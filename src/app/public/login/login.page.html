@@ -1,58 +1,59 @@
 <ion-content>
-  
-  <div class="cabecalho" >
+
+  <div class="cabecalho">
     <ion-img src="assets/img/logo_login.png"></ion-img>
-  </div> 
-  <ion-title text-center margin >Bem-Vinda!</ion-title>
-  
+  </div>
+  <ion-title text-center margin>Bem-Vinda!</ion-title>
+
   <div class="">
     <form (ngSubmit)="login()" [formGroup]="loginForm">
       <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-item  margin-top >
-            <ion-input type="text" placeholder="Email" id="email" formControlName="email" [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty && loginForm.controls.email.touched || submitAttempt)"></ion-input>
-          </ion-item>
-          <ion-item class="ion-invalid" *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty && loginForm.controls.email.touched || submitAttempt)">
-            <p class="msgInvalid">Por favor! Informe um e-mail válido.</p>
-          </ion-item>
-          <ion-item margin-top >
-            <ion-input type="password" placeholder="Password" id="password" formControlName="password"
-            [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)"></ion-input>
-          </ion-item>
-          <ion-item class="ion-invalid" *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)">
-            <p class="msgInvalid">Por favor! Campo obrigatorio.</p>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-button button expand="block" shape="round"  type="submit">Entrar</ion-button>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-            <ion-button button expand="block" shape="round" color="primary" fill="outline"  href="/register" routerDirection="forward"  >Novo Usuário</ion-button>
-        </ion-col>
-      </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item margin-top>
+              <ion-input type="text" placeholder="Email" id="email" formControlName="email" [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty && loginForm.controls.email.touched || submitAttempt)"></ion-input>
+            </ion-item>
+            <ion-item class="ion-invalid" *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty && loginForm.controls.email.touched || submitAttempt)">
+              <p class="msgInvalid">Por favor! Informe um e-mail válido.</p>
+            </ion-item>
+            <ion-item margin-top>
+              <ion-input type="password" placeholder="Password" id="password" formControlName="password"
+                [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)"></ion-input>
+            </ion-item>
+            <ion-item class="ion-invalid" *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)">
+              <p class="msgInvalid">Por favor! Campo obrigatorio.</p>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button button expand="block" shape="round" type="submit">Entrar</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button button expand="block" shape="round" color="primary" fill="outline" href="/register"
+              routerDirection="forward">Novo Usuário</ion-button>
+          </ion-col>
+        </ion-row>
       </ion-grid>
     </form>
   </div>
 
   <ion-grid>
-  <ion-row justify-content-center >
-    <ion-col   size="8">
-      <ion-list >
-          <ion-item  (click)="loginGoogle()" class="cursor-pointer" >
-              <ion-icon name="logo-facebook"></ion-icon>
-              Cadastrar com Facebook
+    <ion-row justify-content-center>
+      <ion-col size="8">
+        <ion-list>
+          <ion-item (click)="loginFacebook()" class="cursor-pointer">
+            <ion-icon name="logo-facebook"></ion-icon>
+            Cadastrar com Facebook
           </ion-item>
-          <ion-item (click)="loginFacebook()" class="cursor-pointer" >
-              <ion-icon name="logo-google"></ion-icon>
-              Cadastrar com google
+          <ion-item (click)="loginGoogle()" class="cursor-pointer">
+            <ion-icon name="logo-google"></ion-icon>
+            Cadastrar com google
           </ion-item>
         </ion-list>
-        </ion-col>
+      </ion-col>
     </ion-row>
   </ion-grid>
-  </ion-content>
+</ion-content>

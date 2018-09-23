@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterPage implements OnInit {
 
+  createSuccess = false;
+  registerCredentials = { name: '', email: '', password: '', confirmation_password: '' };
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public register() {
+
+  }
+
+  showPopup(title, text) {
+    
   }
 
 }
