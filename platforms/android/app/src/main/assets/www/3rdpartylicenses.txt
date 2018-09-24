@@ -105,6 +105,10 @@ MIT
 MIT
 MIT
 
+@angular/fire@5.0.0
+MIT
+MIT
+
 @angular/forms@6.1.3
 MIT
 MIT
@@ -121,11 +125,11 @@ MIT
 MIT
 MIT
 
-@firebase/app@0.3.3
+@firebase/app@0.3.4
 Apache-2.0
 Apache-2.0
 
-@firebase/auth@0.7.2
+@firebase/auth@0.7.5
 Apache-2.0
 Apache License
                            Version 2.0, January 2004
@@ -329,7 +333,11 @@ Apache License
    See the License for the specific language governing permissions and
    limitations under the License.
 
-@firebase/database@0.3.4
+@firebase/database@0.3.5
+Apache-2.0
+Apache-2.0
+
+@firebase/firestore@0.8.0
 Apache-2.0
 Apache-2.0
 
@@ -341,7 +349,11 @@ Apache-2.0
 Apache-2.0
 Apache-2.0
 
-@firebase/util@0.2.1
+@firebase/util@0.2.2
+Apache-2.0
+Apache-2.0
+
+@firebase/webchannel-wrapper@0.2.8
 Apache-2.0
 Apache-2.0
 
@@ -361,13 +373,53 @@ MIT
 MIT
 MIT
 
-angularfire2@5.0.0-rc.11
+@ionic/storage@2.2.0
+MIT
+The MIT License (MIT)
+
+Copyright (c) 2016 Ionic
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+angularfire2@5.0.1
 MIT
 MIT
 
-firebase@5.4.0
+firebase@5.5.0
 Apache-2.0
 Apache-2.0
+
+localforage@1.7.1
+Apache-2.0
+Copyright 2014 Mozilla
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
 rxjs@6.2.2
 Apache-2.0
@@ -630,26 +682,3 @@ If the Work includes a "NOTICE" text file as part of its distribution, then any 
 9. Accepting Warranty or Additional Liability. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.
 
 END OF TERMS AND CONDITIONS
-
-whatwg-fetch@2.0.4
-MIT
-Copyright (c) 2014-2016 GitHub, Inc.
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

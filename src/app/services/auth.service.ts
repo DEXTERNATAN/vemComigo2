@@ -20,8 +20,13 @@ export class AuthService {
     return this._firebaseAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password);
   }
 
-  signInWithGoogle(credentials) {
-    return this._firebaseAuth.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider());
+  signInWithGoogle() {
+    return this._firebaseAuth.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider()).then(
+      res => {
+        console.log('From Google');
+        console.log(res);
+      }
+    )
   }
 
   signInWithFacebook(credentials) {
@@ -29,19 +34,19 @@ export class AuthService {
   }
 
 
-  createUser(credentials) {
+  signUp(credentials) {
+    return this._firebaseAuth.auth.createUserWithEmailAndPassword(credentials.email,credentials.password);
+    // return firebase.auth().createUserWithEmailAndPassword(credentials.email, credentials.senha).then((res: any) => {
+    //   console.log(res);
+    //   const usuario = firebase.auth().currentUser;
+    //   usuario.updateProfile({
+    //     displayName: credentials.nome,
+    //     photoURL: credentials.urlImagem
+    //   });
 
-    return firebase.auth().createUserWithEmailAndPassword(credentials.email, credentials.senha).then((res: any) => {
-      console.log(res);
-      const usuario = firebase.auth().currentUser;
-      usuario.updateProfile({
-        displayName: credentials.nome,
-        photoURL: credentials.urlImagem
-      });
-
-    }).catch((erro: any) => {
-      console.log(erro);
-    });
+    // }).catch((erro: any) => {
+    //   console.log(erro);
+    // });
 
   }
 

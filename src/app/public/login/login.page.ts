@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from '../../model/user.model';
+import { LoadingController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-login',
@@ -15,8 +17,9 @@ export class LoginPage implements OnInit {
   credentias: { email: any; password: any };
 
   constructor(
+    private fb: FormBuilder,
     private authService: AuthenticationService,
-    private fb: FormBuilder
+    private loadingController: LoadingController
   ) {
     this.loginForm = fb.group({
       email: ['', Validators.required],
@@ -26,6 +29,16 @@ export class LoginPage implements OnInit {
 
   ngOnInit() { }
 
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      content: 'Aguarde ...',
+      duration: 2000
+    });
+    return await loading.present();
+  }
+
+
+
   login() {
 
     this.submitAttempt = true;
@@ -34,8 +47,11 @@ export class LoginPage implements OnInit {
       password: this.loginForm.value.password
     };
 
+    this.presentLoading();
+
     this.authService.signWithEmail(this.credentias).then(
       () => {
+
         console.log('Logado');
       },
       error => console.log('Erros encontrados: ', error)
@@ -48,11 +64,13 @@ export class LoginPage implements OnInit {
     this.authService.signInWithGoogle().then(
       () => {
         console.log('Logado com google');
-      }
+      },
+      error => console.log('Erros agora google', error)
     );
   }
 
   loginFacebook() {
     console.log('Cliquei no login com Facebook');
   }
+
 }
