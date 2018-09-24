@@ -10,13 +10,13 @@
       <ion-grid>
       <ion-row>
         <ion-col>
-          <ion-item  margin-top >
+          <ion-item lines="inset" margin-top >
             <ion-input type="text" placeholder="Email" id="email" formControlName="email" [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty && loginForm.controls.email.touched || submitAttempt)"></ion-input>
           </ion-item>
           <ion-item class="ion-invalid" *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty && loginForm.controls.email.touched || submitAttempt)">
             <p class="msgInvalid">Por favor! Informe um e-mail válido.</p>
           </ion-item>
-          <ion-item margin-top >
+          <ion-item lines="inset" margin-top >
             <ion-input type="password" placeholder="Password" id="password" formControlName="password"
             [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)"></ion-input>
           </ion-item>
@@ -41,7 +41,7 @@
 
   <ion-grid>
   <ion-row justify-content-center >
-    <ion-col   size="8">
+    <ion-col   size="10">
       <ion-list >
           <ion-item  (click)="loginGoogle()" class="cursor-pointer" >
               <ion-icon name="logo-facebook"></ion-icon>
