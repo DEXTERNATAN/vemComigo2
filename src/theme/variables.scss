@@ -75,9 +75,20 @@
   --ion-color-dark-contrast-rgb: 255,255,255;
   --ion-color-dark-shade: #1e1e1e;
   --ion-color-dark-tint: #383838;
+  
+  --ion-border-color:#22a4ad;
+  --ion-color-shade:#22a4ad;
+  --inner-border-width:2px;
 
+  --ion-item-border-color: var(--ion-border-color);
 }
 
+
+:host {
+  --ion-border-color: #22a4ad;
+
+
+}
 
 
 
@@ -91,4 +102,5 @@
 .md {
   --ion-text-color: #686569;
   --ion-background-color:#f5fcfd;
+
 }

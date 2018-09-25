@@ -1,0 +1,36 @@
+.invalid {
+  color: red;
+}
+
+.msgInvalid {
+  color: red;
+  font-size: 12px;
+}
+
+.sc-ion-button-md-h, .sc-ion-button-ios-h{
+  font-weight: bold!important;
+}
+
+.sc-ion-icon-h.hydrated[name="logo-facebook"] {
+  color: #4b7ebd;
+}
+
+.sc-ion-icon-h.hydrated[name="logo-google"] {
+  color: #fd5d51;
+}
+
+.md form .item-native.sc-ion-item-md,  .ios form .item-native.sc-ion-item-ios {
+  border-width: 2px;
+  border-color:  #22a4ad;
+  border-style:solid;
+  border-radius:20px;
+}
+
+.md form .ion-invalid .item-native.sc-ion-item-md, .ios form .ion-invalid .item-native.sc-ion-item-ios {
+  border:none;
+  
+}
+
+.cursor-pointer{
+  cursor:pointer;
+}
