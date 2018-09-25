@@ -1,28 +1,23 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-button (click)="logout()">
         <ion-icon slot="icon-only" name="log-out"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>My Dashboard</ion-title>
+    <ion-title>Vem Comigo</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <!-- <p>Usuario logado: {{this.currentUser?.email}} </p>
-  <p><img src="{{this.currentUser?.photoURL}}" alt=""></p> -->
-
   <ion-card>
     <ion-card-header>
-      <img src="{{this.currentUser?.photoURL}}" alt="Avatar do usuário" height="110px">
-      <ion-card-subtitle>Seja Bem Vindo!</ion-card-subtitle>
-      <ion-card-title>{{this.currentUser?.displayName}}</ion-card-title>
+      <ion-item>
+        <ion-avatar slot="start">
+            <img src="assets/img/avatar.png" alt="">
+        </ion-avatar>
+        <ion-label>{{ this.currentUser?.displayName || this.currentUser?.email }}</ion-label>
+      </ion-item>
     </ion-card-header>
-    <ion-card-content>
-      {{this.currentUser?.email}}
-    </ion-card-content>
   </ion-card>
-
-
 </ion-content>
