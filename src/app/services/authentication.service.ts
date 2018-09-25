@@ -27,7 +27,7 @@ export class AuthenticationService {
     this.plt.ready().then(() => {
       this.checkToken();
     });
-    
+
   }
 
   checkToken() {
@@ -48,7 +48,7 @@ export class AuthenticationService {
   //   }else{
   //     return await loading.dismiss();
   //   }
-      
+
   // }
 
   signWithEmail(credentials) {
@@ -73,7 +73,7 @@ export class AuthenticationService {
           this.authenticationState.next(true);
           // this.presentLoading(false);
         });
-        
+
       }
     );
   }
