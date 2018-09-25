@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Sep 25 06:06:06 BRT 2018
+#Tue Sep 25 11:47:22 BRT 2018
 835.base=C\:\\Users\\natanPolly\\Documents\\Projetos-Ionic\\vemComigo2\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 100.set=ASSET
 57.file=C\:\\Users\\natanPolly\\Documents\\Projetos-Ionic\\vemComigo2\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\svg\\md-cloudy.svg

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Sep 25 06:10:56 BRT 2018
+#Tue Sep 25 11:48:47 BRT 2018
 835.base=C\:\\Users\\natanPolly\\Documents\\Projetos-Ionic\\vemComigo2\\platforms\\android\\app\\build\\intermediates\\assets\\release
 100.set=ASSET
 57.file=C\:\\Users\\natanPolly\\Documents\\Projetos-Ionic\\vemComigo2\\platforms\\android\\app\\build\\intermediates\\assets\\release\\www\\svg\\ios-baseball.svg
