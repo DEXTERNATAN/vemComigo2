@@ -38,40 +38,40 @@ export class AuthenticationService {
     });
   }
 
-  async presentLoading(op) {
-    const loading = await this._loadingCtrl.create({
-      content: 'Aguarde ...',
-      duration: 2000
-    });
-    if(op === true) {
-      return await loading.present();
-    }else{
-      return await loading.dismiss();
-    }
+  // async presentLoading(op) {
+  //   const loading = await this._loadingCtrl.create({
+  //     content: 'Aguarde ...',
+  //     duration: 2000
+  //   });
+  //   if(op === true) {
+  //     return await loading.present();
+  //   }else{
+  //     return await loading.dismiss();
+  //   }
       
-  }
+  // }
 
   signWithEmail(credentials) {
-    this.presentLoading(true);
+    // this.presentLoading(true);
     return this._firebaseAuth.auth
       .signInWithEmailAndPassword(credentials.email, credentials.password)
       .then(data => {
         this.storage.set(TOKEN_KEY, 'Bearer 1234567').then(() => {
           this.authenticationState.next(true);
-          this.presentLoading(false);
+          // this.presentLoading(false);
         });
       });
   }
 
   signInWithGoogle() {
-    this.presentLoading(true);
+    // this.presentLoading(true);
     return this._firebaseAuth.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider()
     ).then(
       () => {
         this.storage.set(TOKEN_KEY, 'Bearer 1234567').then(() => {
           this.authenticationState.next(true);
-          this.presentLoading(false);
+          // this.presentLoading(false);
         });
         
       }

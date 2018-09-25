@@ -3,24 +3,25 @@
   <div class="cabecalho">
     <ion-img src="assets/img/logo_login.png"></ion-img>
   </div>
+
   <ion-title text-center margin>Bem-Vinda!</ion-title>
 
   <div class="">
-    <form (ngSubmit)="login()" [formGroup]="loginForm">
+    <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
       <ion-grid>
         <ion-row>
           <ion-col>
             <ion-item margin-top>
-              <ion-input type="text" placeholder="Email" id="email" formControlName="email" [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty && loginForm.controls.email.touched || submitAttempt)"></ion-input>
+              <ion-input type="text" placeholder="Email" id="email" formControlName="email" [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || submitAttempt)"></ion-input>
             </ion-item>
-            <ion-item class="ion-invalid" *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty && loginForm.controls.email.touched || submitAttempt)">
+            <ion-item class="ion-invalid" *ngIf="!loginForm.controls.email.valid  && submitAttempt">
               <p class="msgInvalid">Por favor! Informe um e-mail válido.</p>
             </ion-item>
             <ion-item margin-top>
               <ion-input type="password" placeholder="Password" id="password" formControlName="password"
-                [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)"></ion-input>
+                [class.invalid]="!loginForm.controls.password.valid && submitAttempt"></ion-input>
             </ion-item>
-            <ion-item class="ion-invalid" *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty && loginForm.controls.password.touched || submitAttempt)">
+            <ion-item class="ion-invalid" *ngIf="!loginForm.controls.password.valid && submitAttempt">
               <p class="msgInvalid">Por favor! Campo obrigatorio.</p>
             </ion-item>
           </ion-col>
@@ -44,14 +45,18 @@
     <ion-row justify-content-center>
       <ion-col size="8">
         <ion-list>
-          <!-- <ion-item (click)="loginGoogle()" class="cursor-pointer">
-            <ion-icon name="logo-facebook"></ion-icon>
-            Cadastrar com Facebook
-          </ion-item> -->
-          <ion-item (click)="loginGoogle()" class="cursor-pointer">
-            <ion-icon name="logo-google"></ion-icon>
-            Cadastrar com google
-          </ion-item>
+          <!-- 
+            <ion-item (click)="loginGoogle()" class="cursor-pointer">
+              <ion-icon name="logo-facebook"></ion-icon>
+              Cadastrar com Facebook
+            </ion-item>
+           -->
+          <!-- 
+            <ion-item (click)="loginGoogle()" class="cursor-pointer">
+              <ion-icon name="logo-google"></ion-icon>
+              Cadastrar com google
+            </ion-item> 
+          -->
         </ion-list>
       </ion-col>
     </ion-row>
