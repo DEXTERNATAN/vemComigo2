@@ -5,19 +5,36 @@
         <ion-icon slot="icon-only" name="log-out"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Vem Comigo</ion-title>
+    <ion-title>#VemComigo</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-    <ion-card-header>
-      <ion-item>
-        <ion-avatar slot="start">
-            <img src="assets/img/avatar.png" alt="">
-        </ion-avatar>
-        <ion-label>{{ this.currentUser?.displayName || this.currentUser?.email }}</ion-label>
-      </ion-item>
-    </ion-card-header>
-  </ion-card>
+	<h1 text-center>#Partiu achar uma amiga</h1>
+
+	<!-- colocar uma imagem aqui embaixo -->
+	<div text-center padding class="card-arredondado">
+		<ion-icon name="contact" class="icon-btn-buscar"></ion-icon>
+		<!-- <div>
+			<span>
+				<ion-icon name="search"></ion-icon>
+			</span>
+			<span>Buscar</span>
+    </div> -->
+    
+    <!-- Exemplo a seguir -->
+    <!-- https://github.com/dtaalbers/ionic-example-app/tree/master/app/src/pages -->
+
+    <ion-searchbar placeholder="Buscar uma amiga"></ion-searchbar>
+  </div>
+  
+	<div padding text-center>
+		<ion-button color="success" shape="round" fill="outline" expand="full" (click)="listarUltimas()">Ultima pesquisa</ion-button>
+	</div>
+
+	<div padding text-center>
+		<p (click)="buscarAjuda()"><ion-icon name="help-circle-outline"></ion-icon> Preciso de ajuda</p>
+	</div>
+	
+
 </ion-content>
