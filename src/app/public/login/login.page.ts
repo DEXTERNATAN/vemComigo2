@@ -12,7 +12,7 @@ import { LoadingController, AlertController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
-  submitAttempt = false;
+  submitted = false;
   user: User[];
   credentias: { email: any; password: any };
   loading: any;
@@ -46,40 +46,49 @@ export class LoginPage implements OnInit {
 
   async presentAlert(msg: string) {
     const alert = await this.alertController.create({
-        header: 'Cadastro de usuário',
-        message: msg,
-        buttons: ['OK']
+      header: 'Cadastro de usuário',
+      message: msg,
+      buttons: ['OK']
     });
 
     await alert.present();
-}
+  }
+
+  // convenience getter for easy access to form fields
+  get f() { return this.loginForm.controls; }
 
   login() {
 
     // this.presentLoading();
 
-    this.submitAttempt = true;
+    this.submitted = true;
     this.credentias = {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password
     };
 
-    this.authService.signWithEmail(this.credentias).then(
-      () => {
-        console.log('Logado');
-        // this.hideLoading();
-      },
-      error => {
-        console.log('Erros encontrados: ', error.code);
+    if (this.loginForm.invalid) {
+      return;
+    } else {
+      this.authService.signWithEmail(this.credentias).then(
+        () => {
+          console.log('Logado');
+          // this.hideLoading();
+        },
+        error => {
+          console.log('Erros encontrados: ', error.code);
 
-        if ( error.code == 'auth/wrong-password') {
-          this.presentAlert('A senha é inválida ou o usuário não possui uma senha.');
-        } else {
-          this.presentAlert(error.message);
+          if (error.code == 'auth/wrong-password') {
+            this.presentAlert('A senha é inválida ou o usuário não possui uma senha.');
+          } else {
+            this.presentAlert(error.message);
+          }
+          // this.hideLoading();
         }
-        // this.hideLoading();
-      }
-    );
+      );
+    }
+
+
 
   }
 

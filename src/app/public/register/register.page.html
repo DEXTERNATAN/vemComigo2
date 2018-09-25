@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <ion-grid>
-    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
       <ion-row>
         <ion-col>
           <ion-list>
@@ -38,7 +38,8 @@
       <ion-row>
         <ion-col size="12" text-center>
           <!-- <div class="form-error">{{signupError}}</div> -->
-          <ion-button type="submit" expand="block" shape="round" [disabled]="!registerForm.valid">
+          <ion-button type="submit" expand="block" shape="round" >
+              <!-- [disabled]="!registerForm.valid" -->
             PRONTO!
           </ion-button>
         </ion-col>

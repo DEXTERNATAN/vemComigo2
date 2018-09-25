@@ -7,22 +7,24 @@
   <ion-title text-center margin>Bem-Vinda!</ion-title>
 
   <div class="">
-    <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+    <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
       <ion-grid>
         <ion-row>
           <ion-col>
             <ion-item margin-top>
-              <ion-input type="text" placeholder="Email" id="email" formControlName="email" [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || submitAttempt)"></ion-input>
+              <ion-input type="text" placeholder="Email" id="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"></ion-input>
+              <!-- [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || submitAttempt)" -->
             </ion-item>
-            <ion-item class="ion-invalid" *ngIf="!loginForm.controls.email.valid  && submitAttempt">
-              <p class="msgInvalid">Por favor! Informe um e-mail válido.</p>
+            <ion-item *ngIf="submitted && f.email.errors" class="ion-invalid">
+              <div class="msgInvalid" *ngIf="f.email.errors.required">E-mail é obrigatório</div>
+              <div class="msgInvalid" *ngIf="f.email.errors.email">E-mail deve ser um endereço válido</div>
             </ion-item>
             <ion-item margin-top>
-              <ion-input type="password" placeholder="Password" id="password" formControlName="password"
-                [class.invalid]="!loginForm.controls.password.valid && submitAttempt"></ion-input>
+              <ion-input type="password" placeholder="Password" id="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"></ion-input>
             </ion-item>
-            <ion-item class="ion-invalid" *ngIf="!loginForm.controls.password.valid && submitAttempt">
-              <p class="msgInvalid">Por favor! Campo obrigatorio.</p>
+            <ion-item *ngIf="submitted && f.password.errors" class="ion-invalid">
+              <div class="msgInvalid" *ngIf="f.password.errors.required">Senha é obrigatória</div>
+              <div class="msgInvalid" *ngIf="f.password.errors.minlength">A senha deve ter pelo menos 6 caracteres.</div>
             </ion-item>
           </ion-col>
         </ion-row>
