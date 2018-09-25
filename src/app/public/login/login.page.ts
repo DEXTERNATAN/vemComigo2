@@ -67,6 +67,7 @@ export class LoginPage implements OnInit {
       password: this.loginForm.value.password
     };
 
+
     if (this.loginForm.invalid) {
       return;
     } else {
