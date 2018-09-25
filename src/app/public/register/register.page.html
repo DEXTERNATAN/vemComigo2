@@ -9,15 +9,23 @@
 
 <ion-content padding>
   <ion-grid>
-    <form (ngSubmit)="signup()" [formGroup]="form">
+    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
       <ion-row>
         <ion-col>
           <ion-list>
             <ion-item>
-              <ion-input type="text" placeholder="E-mail" id="email" formControlName="email"></ion-input>
+              <ion-input type="text" placeholder="E-mail" id="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="submitted && f.email.errors" class="ion-invalid">
+              <div class="msgInvalid" *ngIf="f.email.errors.required">E-mail é obrigatório</div>
+              <div class="msgInvalid" *ngIf="f.email.errors.email">E-mail deve ser um endereço válido</div>
             </ion-item>
             <ion-item>
               <ion-input type="password" placeholder="Senha (min 6 caracteres)" id="password" formControlName="password"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="submitted && f.password.errors" class="ion-invalid">
+              <div class="msgInvalid" *ngIf="f.password.errors.required">Senha é obrigatória</div>
+              <div class="msgInvalid" *ngIf="f.password.errors.minlength">A senha deve ter pelo menos 6 caracteres.</div>
             </ion-item>
             <!-- 
               <ion-item>
@@ -30,7 +38,7 @@
       <ion-row>
         <ion-col size="12" text-center>
           <!-- <div class="form-error">{{signupError}}</div> -->
-          <ion-button type="submit" expand="block" shape="round" [disabled]="!form.valid">
+          <ion-button type="submit" expand="block" shape="round" [disabled]="!registerForm.valid">
             PRONTO!
           </ion-button>
         </ion-col>

@@ -57,7 +57,7 @@ export class LoginPage implements OnInit {
   login() {
 
     // this.presentLoading();
-    
+
     this.submitAttempt = true;
     this.credentias = {
       email: this.loginForm.value.email,
@@ -71,10 +71,10 @@ export class LoginPage implements OnInit {
       },
       error => {
         console.log('Erros encontrados: ', error.code);
-        
-        if(error.code == 'auth/wrong-password') {
+
+        if ( error.code == 'auth/wrong-password') {
           this.presentAlert('A senha é inválida ou o usuário não possui uma senha.');
-        }else {
+        } else {
           this.presentAlert(error.message);
         }
         // this.hideLoading();

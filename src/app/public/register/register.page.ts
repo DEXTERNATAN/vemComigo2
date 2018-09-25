@@ -13,7 +13,8 @@ import { AuthService } from '../../services/auth.service';
 export class RegisterPage {
 
     signupError: string;
-    form: FormGroup;
+    registerForm: FormGroup;
+    submitted = false;
 
     constructor(
         fb: FormBuilder,
@@ -21,7 +22,7 @@ export class RegisterPage {
         private alertController: AlertController,
         private router: Router
     ) {
-        this.form = fb.group({
+        this.registerForm = fb.group({
             email: ['', Validators.compose([Validators.required, Validators.email])],
             password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
         });
@@ -37,26 +38,37 @@ export class RegisterPage {
         await alert.present();
     }
 
-    signup() {
-        let data = this.form.value;
-        let credentials = {
-            email: data.email,
-            password: data.password
-        };
-        console.log(credentials);
-        this.auth.signUp(credentials).then(
-            (data: any) => {
-                console.log('cadastrado', data);
-                this.presentAlert('Usuário cadastrado com sucesso!');
-                this.router.navigateByUrl('/');
-            },
-            error => {
-              this.signupError = error.message;
-              console.log('Erros encontrados: ', this.signupError );
-              this.presentAlert('O endereço de e-mail já está sendo usado por outra conta.');
-              this.form.reset();
-            }
-        );
+    // convenience getter for easy access to form fields
+    get f() { return this.registerForm.controls; }
+
+    onSubmit() {
+
+        this.submitted = true;
+
+        // Se o form é invalido pula fora
+        if (this.registerForm.invalid) {
+            return;
+        } else {
+            const data = this.registerForm.value;
+            const credentials = {
+                email: data.email,
+                password: data.password
+            };
+            console.log(credentials);
+            this.auth.signUp(credentials).then(
+                () => {
+                    // console.log('cadastrado', data);
+                    this.presentAlert('Usuário cadastrado com sucesso!');
+                    this.router.navigateByUrl('/');
+                },
+                error => {
+                    this.signupError = error.message;
+                    console.log('Erros encontrados: ', this.signupError);
+                    this.presentAlert('O endereço de e-mail já está sendo usado por outra conta.');
+                    this.registerForm.reset();
+                }
+            );
+        }
 
     }
 
