@@ -25,8 +25,8 @@ export class LoginPage implements OnInit {
   ) {
 
     this.loginForm = fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
     });
   }
 
@@ -79,8 +79,10 @@ export class LoginPage implements OnInit {
         error => {
           console.log('Erros encontrados: ', error.code);
 
-          if (error.code == 'auth/wrong-password') {
+          if (error.code === 'auth/wrong-password') {
             this.presentAlert('A senha é inválida ou o usuário não possui uma senha.');
+          } else if ( error.code === 'auth/user-not-found' ) {
+            this.presentAlert('Não há registro de usuário correspondente a esse identificador. O usuário pode ter sido excluído.');
           } else {
             this.presentAlert(error.message);
           }
