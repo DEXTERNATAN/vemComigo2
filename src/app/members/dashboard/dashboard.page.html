@@ -1,12 +1,12 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-button (click)="logout()">
-        <ion-icon slot="icon-only" name="log-out"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>#VemComigo</ion-title>
-  </ion-toolbar>
+	<ion-toolbar color="primary">
+		<ion-buttons slot="start">
+			<ion-button (click)="logout()">
+				<ion-icon slot="icon-only" name="log-out"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+		<ion-title>#VemComigo</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content padding>
@@ -21,20 +21,46 @@
 			</span>
 			<span>Buscar</span>
     </div> -->
-    
-    <!-- Exemplo a seguir -->
-    <!-- https://github.com/dtaalbers/ionic-example-app/tree/master/app/src/pages -->
 
-    <ion-searchbar placeholder="Buscar uma amiga"></ion-searchbar>
-  </div>
-  
+		<!-- Exemplo a seguir -->
+		<!-- https://github.com/dtaalbers/ionic-example-app/tree/master/app/src/pages -->
+
+		<ion-searchbar placeholder="Buscar uma amiga"></ion-searchbar>
+	</div>
+
 	<div padding text-center>
 		<ion-button color="success" shape="round" fill="outline" expand="full" (click)="listarUltimas()">Ultima pesquisa</ion-button>
 	</div>
 
 	<div padding text-center>
-		<p (click)="buscarAjuda()"><ion-icon name="help-circle-outline"></ion-icon> Preciso de ajuda</p>
+		<p (click)="buscarAjuda()">
+			<ion-icon name="help-circle-outline"></ion-icon> Preciso de ajuda
+		</p>
 	</div>
-	
+
+	<!-- <ion-tabs>
+		<ion-tab label="Schedule" icon="calendar" href="">
+			<ion-router-outlet stack name="schedule"></ion-router-outlet>
+		</ion-tab>
+		<ion-tab label="Speakers" icon="contacts" href="">
+			<ion-router-outlet stack name="speakers"></ion-router-outlet>
+		</ion-tab>
+		<ion-tab label="Map" icon="map" href="">
+			<ion-router-outlet stack name="map"></ion-router-outlet>
+		</ion-tab>
+		<ion-tab label="About" icon="help-circle" href="">
+			<ion-router-outlet stack name="about"></ion-router-outlet>
+		</ion-tab>
+	</ion-tabs> -->
+
+
+
+
+	<ion-tabs>
+		<ion-tab label="Busca" icon="search"></ion-tab>
+		<ion-tab label="Perfil" icon="person"></ion-tab>
+		<ion-tab label="Quem Somos" icon="people"></ion-tab>
+		<ion-tab label="Ajuda" icon="help-circle"></ion-tab>
+	</ion-tabs>
 
 </ion-content>
