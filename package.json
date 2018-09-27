@@ -1,6 +1,6 @@
 {
   "name": "VemComigo",
-  "version": "0.0.4",
+  "version": "0.0.8",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "scripts": {
@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "publish": "cordova build android && cordova build --release android"
+    "publish": "ng build --prod && cordova build android && cordova build --release android"
   },
   "private": true,
   "dependencies": {
